@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import Register from './components/Register';
+import Login from './components/Login';
+import Deposit from './components/Deposit';
+import BuyProduct from './components/BuyProduct';
+import ResetDeposit from './components/ResetDeposit';
 
-function App() {
+const App = () => {
+  const [token, setToken] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Row>
+        <Col>
+          {!token ? (
+            <div>
+              <h1>Vending Machine API</h1>
+              <Login setToken={setToken} />
+              <Register />
+            </div>
+          ) : (
+            <div>
+              <h1>Welcome to the Vending Machine</h1>
+              <Deposit token={token} />
+              <BuyProduct token={token} />
+              <ResetDeposit token={token} />
+            </div>
+          )}
+        </Col>
+      </Row>
+    </Container>
   );
-}
+};
 
 export default App;
