@@ -1,3 +1,11 @@
+# General Info
+
+Register: Allows a user to register as a buyer or seller.
+Login: Logs in a user and stores the JWT token.
+Product List: Displays a list of products.
+Deposit: Allows buyers to deposit coins.
+Buy Product: Allows buyers to buy products using their deposited money.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
